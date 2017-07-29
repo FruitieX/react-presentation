@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
 
+import Lowlight from 'react-lowlight';
+
+// Load any languages you want to use
+// (see https://github.com/isagalaev/highlight.js/tree/master/src/languages)
+import js from 'highlight.js/lib/languages/javascript';
+
+import 'typeface-roboto';
+
 import 'impress.js';
 import './Impress.css';
+import './github.css';
 
-import Agenda from './Agenda';
+import Intro from './Intro';
+
+// Then register them with lowlight
+Lowlight.registerLanguage('js', js);
 
 class App extends Component {
   componentDidMount() {
@@ -13,7 +25,7 @@ class App extends Component {
   render() {
     return (
       <div id="impress">
-        <Agenda />
+        <Intro />
       </div>
     );
   }

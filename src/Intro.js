@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import Lowlight from 'react-lowlight';
+
+import Card, { CardContent } from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
 
 import Step from './Step';
 
@@ -35,8 +39,14 @@ class App extends Component {
           <h4>This is how we used to do things</h4>
           <h6>(and still might):</h6>
 
-          <h4>jQuery</h4>
-          <code>foo</code>
+          <Card>
+            <CardContent>
+              <Typography type="headline" component="h2">
+                jQuery
+              </Typography>
+              <Lowlight language="js" value="var foo = 'bar';" />
+            </CardContent>
+          </Card>
         </Step>
       </div>
     );
