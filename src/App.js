@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import 'impress.js';
-import 'impress.js/css/impress-demo.css';
+import './Impress.css';
 
 import Agenda from './Agenda';
 
