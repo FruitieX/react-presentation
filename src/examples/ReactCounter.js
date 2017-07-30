@@ -34,23 +34,93 @@ class ReactCounter extends Component {
         <CardContent>
           <div className={this.props.classes.codeContainer}>
             <div className={this.props.classes.code}>
+              <span
+                style={{
+                  color: 'red',
+                  fontFamily: "'Gloria Hallelujah', cursive",
+                  position: 'absolute',
+                  fontSize: 24,
+                  top: 200,
+                  right: 350,
+                  transform: 'rotate(10deg)',
+                  opacity: 0.5,
+                }}
+              >
+                &lt;- Initial state
+              </span>
+              <span
+                style={{
+                  color: 'red',
+                  fontFamily: "'Gloria Hallelujah', cursive",
+                  position: 'absolute',
+                  fontSize: 24,
+                  top: 320,
+                  right: 100,
+                  transform: 'rotate(10deg)',
+                  opacity: 0.5,
+                }}
+              >
+                onClick handlers
+              </span>
+              <span
+                style={{
+                  color: 'red',
+                  fontFamily: "'Gloria Hallelujah', cursive",
+                  position: 'absolute',
+                  fontSize: 24,
+                  top: 330,
+                  right: 280,
+                  transform: 'rotate(-30deg)',
+                  opacity: 0.5,
+                }}
+              >
+                &lt;-
+              </span>
+              <span
+                style={{
+                  color: 'red',
+                  fontFamily: "'Gloria Hallelujah', cursive",
+                  position: 'absolute',
+                  fontSize: 24,
+                  top: 280,
+                  right: 280,
+                  transform: 'rotate(30deg)',
+                  opacity: 0.5,
+                }}
+              >
+                &lt;-
+              </span>
+              <span
+                style={{
+                  color: 'red',
+                  fontFamily: "'Gloria Hallelujah', cursive",
+                  position: 'absolute',
+                  fontSize: 24,
+                  top: 640,
+                  right: 100,
+                  transform: 'rotate(10deg)',
+                  opacity: 0.5,
+                }}
+              >
+                &lt;- Describes the user interface
+              </span>
               <PrismCode component="pre" className="language-jsx">
                 {`class Counter extends Component {
-  state = { value: 0 }; // Initial state
+  state = { value: 0 };
 
   increment() {
     this.setState({ value: this.state.value + 1 });
   }
 
   decrement() {
-    this.setState({ value: this.state.value + 1 });
+    this.setState({ value: this.state.value - 1 });
   }
 
   render() {
     return (
       <div>
-        <a onClick={this.increment()}> + </a>
-        <a onClick={this.decrement()}> - </a>
+        <a onClick={this.increment}> + </a>
+        <a onClick={this.decrement}> - </a>
       </div>
     );
   }

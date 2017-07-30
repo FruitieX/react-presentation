@@ -25,6 +25,10 @@ class App extends Component {
   render() {
     return (
       <div id="impress">
+        <link
+          href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah"
+          rel="stylesheet"
+        />
         <Intro />
       </div>
     );

@@ -73,9 +73,6 @@ center,
 dl,
 dt,
 dd,
-ol,
-ul,
-li,
 fieldset,
 form,
 label,
@@ -279,6 +276,12 @@ a:focus {
 
 .step pre {
   font-size: 18px;
+}
+
+ul {
+  color: #222;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 /*
