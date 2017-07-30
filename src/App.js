@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 
-import Lowlight from 'react-lowlight';
-
 // Load any languages you want to use
 // (see https://github.com/isagalaev/highlight.js/tree/master/src/languages)
 import js from 'highlight.js/lib/languages/javascript';
+import html from 'highlight.js/lib/languages/xml';
+
+import 'prismjs';
+import 'prismjs/themes/prism.css';
+import 'prismjs/components/prism-jsx';
 
 import 'typeface-roboto';
 
@@ -13,9 +16,6 @@ import './Impress.css';
 import './github.css';
 
 import Intro from './Intro';
-
-// Then register them with lowlight
-Lowlight.registerLanguage('js', js);
 
 class App extends Component {
   componentDidMount() {

@@ -277,6 +277,10 @@ a:focus {
   line-height: 1.5;
 }
 
+.step pre {
+  font-size: 18px;
+}
+
 /*
     ... and we enhance the styles for impress.js.
 
