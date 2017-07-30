@@ -20,7 +20,7 @@ class Intro extends Component {
   render() {
     return (
       <div>
-        <Step id="welcome" x={1100} y={1000} z={2000}>
+        <Step id="welcome" x={1100} y={800} z={2000}>
           <center>
             <div className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
@@ -43,15 +43,15 @@ class Intro extends Component {
             </code>
           </center>
         </Step>
-        <Step id="jquery-counter" x={800} y={-400} z={-500} rotate={-40}>
+        <Step id="jquery-counter" x={800} y={-400} z={-500} rotate={0}>
           <h4>Let's build a simple counter</h4>
           <JQueryCounter />
         </Step>
-        <Step id="react-counter" x={1300} y={100} z={-500} rotate={-40}>
+        <Step id="react-counter" x={800} y={300} z={-500} rotate={0}>
           <h4>Counter v2, using React</h4>
           <ReactCounter />
         </Step>
-        <Step id="counter-comparison" x={1600} y={-800} z={500} rotate={-50}>
+        <Step id="counter-comparison" x={1400} y={0} z={500} rotate={10}>
           <div style={{ display: 'flex' }}>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
               <img
