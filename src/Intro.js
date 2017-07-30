@@ -38,7 +38,7 @@ class Intro extends Component {
         <Step id="welcome" x={1100} y={800} z={2000}>
           <center>
             <div className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
+              <img src={logo} className="App-logo" alt="React logo" />
               <div>Welcome to React!</div>
             </div>
           </center>
@@ -47,6 +47,7 @@ class Intro extends Component {
           <Card>
             <CardContent>
               <img
+                alt="React logo"
                 src={reactLogo}
                 className="Full-width"
                 style={{ width: 300 }}
@@ -92,11 +93,13 @@ class Intro extends Component {
           <div style={{ display: 'flex' }}>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
               <img
+                alt="Small jQuery diagram"
                 src={jquerySmall}
                 className="Full-width"
                 style={{ flex: 1 }}
               />
               <img
+                alt="Small React diagram"
                 src={reactSmall}
                 className="Full-width"
                 style={{ flex: 1 }}
@@ -109,6 +112,7 @@ class Intro extends Component {
                   <div style={{ display: 'flex', alignItems: 'center' }}>
                     <span style={{ marginRight: 8 }}>In the</span>
                     <img
+                      alt="jQuery logo"
                       src={jqueryLogo}
                       className="Full-width"
                       style={{ width: 200 }}
@@ -134,6 +138,7 @@ class Intro extends Component {
                   <div style={{ display: 'flex', alignItems: 'center' }}>
                     <span style={{ marginRight: 8 }}>In the</span>
                     <img
+                      alt="React logo"
                       src={reactLogo}
                       className="Full-width"
                       style={{ width: 120 }}
@@ -181,18 +186,34 @@ class Intro extends Component {
                 <h4>The benefits show in larger apps...</h4>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   <div style={{ flex: 1 }}>
-                    <img src={jqueryLogo} className="Full-width" />
+                    <img
+                      alt="jQuery logo"
+                      src={jqueryLogo}
+                      className="Full-width"
+                    />
                   </div>
                   <div style={{ flex: 4 }}>
-                    <img src={jqueryBig} className="Full-width" />
+                    <img
+                      alt="Large jQuery diagram"
+                      src={jqueryBig}
+                      className="Full-width"
+                    />
                   </div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   <div style={{ flex: 1 }}>
-                    <img src={reactLogo} className="Full-width" />
+                    <img
+                      alt="React logo"
+                      src={reactLogo}
+                      className="Full-width"
+                    />
                   </div>
                   <div style={{ flex: 4 }}>
-                    <img src={reactBig} className="Full-width" />
+                    <img
+                      alt="Large React diagram"
+                      src={reactBig}
+                      className="Full-width"
+                    />
                   </div>
                 </div>
               </CardContent>

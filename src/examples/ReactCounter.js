@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Card, { CardContent } from 'material-ui/Card';
-import Typography from 'material-ui/Typography';
 
 import { PrismCode } from 'react-prism';
 
