@@ -303,3 +303,17 @@ ul {
 .impress-enabled .step.active {
   opacity: 1;
 }
+
+#jsx-recall {
+  opacity: 0;
+}
+.impress-on-jsx-recall .step {
+  opacity: 1 !important;
+}
+
+#jsx-optional {
+  opacity: 0;
+}
+.impress-on-jsx-optional .step {
+  opacity: 1 !important;
+}

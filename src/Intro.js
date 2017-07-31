@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import { PrismCode } from 'react-prism';
 import Card, { CardContent } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 
@@ -29,6 +30,14 @@ const styleSheet = createStyleSheet('Intro', theme => ({
     lineHeight: 1.25,
     color: theme.palette.text.secondary,
   },
+  codeContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  code: {
+    padding: 16,
+    flex: 1,
+  },
 }));
 
 class Intro extends Component {
@@ -43,7 +52,7 @@ class Intro extends Component {
             </div>
           </center>
         </Step>
-        <Step id="what-is-react" x={0} y={100} rotate={-20}>
+        <Step id="what-is-react" x={-200} y={0} rotate={-20}>
           <Card>
             <CardContent>
               <img
@@ -85,11 +94,11 @@ class Intro extends Component {
           <h4>Let's build a simple counter</h4>
           <JQueryCounter />
         </Step>
-        <Step id="react-counter" x={800} y={300} z={-500} rotate={0}>
+        <Step id="react-counter" x={800} y={300} z={-500} rotate={10}>
           <h4>Counter v2, using React</h4>
           <ReactCounter />
         </Step>
-        <Step id="counter-comparison" x={1400} y={0} z={500} rotate={10}>
+        <Step id="counter-comparison" x={1400} y={0} z={500} rotate={0}>
           <div style={{ display: 'flex' }}>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
               <img
@@ -160,10 +169,30 @@ class Intro extends Component {
             </div>
           </div>
         </Step>
-        <Step id="counter-comparison-2" x={1400} y={600} z={100} rotate={10}>
+        <Step
+          id="counter-comparison-2"
+          x={1400}
+          y={600}
+          z={400}
+          rotateX={-30}
+          rotateZ={-10}
+        >
           <div style={{ display: 'flex' }}>
             <div style={{ flex: 1 }} />
             <div style={{ flex: 2, fontSize: 20 }}>
+              <Card style={{ marginBottom: 32 }}>
+                <CardContent>
+                  <h4>
+                    In the jQuery example, <i>we are responsible</i> for keeping
+                    the UI in sync with state
+                  </h4>
+                  <ul>
+                    <li>
+                      In React, <b>this is not the case</b>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
               <Card>
                 <CardContent>
                   <h4>React handles DOM manipulation for us!</h4>
@@ -179,7 +208,7 @@ class Intro extends Component {
             </div>
           </div>
         </Step>
-        <Step id="large-app-comparison" x={2500} y={200} z={-500} rotate={10}>
+        <Step id="large-app-comparison" x={2500} y={500} z={300} rotate={10}>
           <div style={{ display: 'flex' }}>
             <Card>
               <CardContent>
@@ -220,7 +249,7 @@ class Intro extends Component {
             </Card>
           </div>
         </Step>
-        <Step id="virtual-dom-1" x={2500} y={-500} z={-200} rotate={-5}>
+        <Step id="virtual-dom-1" x={2500} y={-200} z={-200} rotate={-5}>
           <h4>It gets even better: Virtual DOM</h4>
           <Card style={{ marginBottom: 32, fontSize: 30 }}>
             <CardContent>
@@ -283,6 +312,137 @@ class Intro extends Component {
                   </span>
                 </li>
               </ul>
+            </CardContent>
+          </Card>
+        </Step>
+        <Step id="jsx-recall" x={500} y={550} z={-200} rotate={20} rotateX={20}>
+          <div
+            style={{
+              color: 'blue',
+              fontFamily: "'Gloria Hallelujah', cursive",
+              fontSize: 64,
+              textAlign: 'center',
+              transform: 'rotate(-70deg)',
+              opacity: 0.5,
+            }}
+          >
+            -&gt;
+          </div>
+          <div>
+            <h4
+              style={{
+                color: 'blue',
+                fontFamily: "'Gloria Hallelujah', cursive",
+                fontSize: 64,
+                opacity: 0.5,
+              }}
+            >
+              Recall this strange "HTML in JS" syntax...
+            </h4>
+          </div>
+        </Step>
+        <Step id="jsx" x={-200} y={1200} z={-50} rotate={20}>
+          <Card style={{ marginBottom: 32, fontSize: 30 }}>
+            <CardContent>
+              <Typography className={this.props.classes.title}>
+                ...This is JSX and it's just syntactic sugar. This:
+              </Typography>
+              <PrismCode component="pre" className="language-jsx">
+                {`render() {
+  return (
+    <div>
+      <div>{this.state.value}</div>
+      <a onClick={this.increment}> + </a>
+      <a onClick={this.decrement}> - </a>
+    </div>
+  );
+}`}
+              </PrismCode>
+              <Typography className={this.props.classes.title}>
+                gets turned into:
+              </Typography>
+              <PrismCode component="pre" className="language-jsx">
+                {`render() {
+  return React.createElement(
+    "div",
+    null,
+    React.createElement("div", null, this.state.value),
+    React.createElement("a", { onClick, this.increment }, " + "),
+    React.createElement("a", { onClick, this.decrement }, " - ")
+  );
+}`}
+              </PrismCode>
+            </CardContent>
+          </Card>
+        </Step>
+        <Step
+          id="jsx-optional"
+          x={-900}
+          y={900}
+          z={250}
+          rotate={30}
+          rotateY={-10}
+        >
+          <div
+            style={{
+              color: 'blue',
+              right: 200,
+              top: 0,
+              position: 'absolute',
+              fontFamily: "'Gloria Hallelujah', cursive",
+              fontSize: 64,
+              textAlign: 'center',
+              transform: 'rotate(-40deg)',
+              opacity: 0.5,
+            }}
+          >
+            -&gt;
+          </div>
+          <div>
+            <h5
+              style={{
+                width: 600,
+                color: 'blue',
+                fontFamily: "'Gloria Hallelujah', cursive",
+                fontSize: 48,
+                opacity: 0.5,
+              }}
+            >
+              Both are equally valid, but I would recommend the former...
+            </h5>
+          </div>
+        </Step>
+        <Step
+          id="coding-1"
+          x={-1600}
+          y={1200}
+          z={800}
+          rotateX={-70}
+          rotateY={-40}
+          rotateZ={10}
+        >
+          <Card
+            style={{
+              opacity: 0.8,
+              height: 500,
+              marginBottom: 32,
+              fontSize: 30,
+            }}
+          >
+            <CardContent>
+              <div>
+                <h5
+                  style={{
+                    color: 'blue',
+                    fontFamily: "'Gloria Hallelujah', cursive",
+                    fontSize: 48,
+                    opacity: 0.5,
+                  }}
+                >
+                  Coding excercise
+                </h5>
+                <div>TODO</div>
+              </div>
             </CardContent>
           </Card>
         </Step>

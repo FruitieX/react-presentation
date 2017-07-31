@@ -12,6 +12,7 @@ import './Impress.css';
 import './github.css';
 
 import Intro from './Intro';
+import Components from './Components';
 
 class App extends Component {
   componentDidMount() {
@@ -22,6 +23,7 @@ class App extends Component {
     return (
       <div id="impress">
         <Intro />
+        <Components />
       </div>
     );
   }

@@ -104,20 +104,21 @@ class ReactCounter extends Component {
                 &lt;- Describes the user interface
               </span>
               <PrismCode component="pre" className="language-jsx">
-                {`class Counter extends Component {
+                {`class Counter extends React.Component {
   state = { value: 0 };
 
-  increment() {
+  increment = () => {
     this.setState({ value: this.state.value + 1 });
-  }
+  };
 
-  decrement() {
+  decrement = () => {
     this.setState({ value: this.state.value - 1 });
-  }
+  };
 
   render() {
     return (
       <div>
+        <div>{this.state.value}</div>
         <a onClick={this.increment}> + </a>
         <a onClick={this.decrement}> - </a>
       </div>
