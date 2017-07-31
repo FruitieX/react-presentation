@@ -119,8 +119,8 @@ class ReactCounter extends Component {
     return (
       <div>
         <div>{this.state.value}</div>
-        <a onClick={this.increment}> + </a>
-        <a onClick={this.decrement}> - </a>
+        <button onClick={this.increment}>+</button>
+        <button onClick={this.decrement}>-</button>
       </div>
     );
   }

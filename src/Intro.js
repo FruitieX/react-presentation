@@ -352,8 +352,8 @@ class Intro extends Component {
   return (
     <div>
       <div>{this.state.value}</div>
-      <a onClick={this.increment}> + </a>
-      <a onClick={this.decrement}> - </a>
+      <button onClick={this.increment}>+</button>
+      <button onClick={this.decrement}>-</button>
     </div>
   );
 }`}
@@ -367,8 +367,8 @@ class Intro extends Component {
     "div",
     null,
     React.createElement("div", null, this.state.value),
-    React.createElement("a", { onClick, this.increment }, " + "),
-    React.createElement("a", { onClick, this.decrement }, " - ")
+    React.createElement("button", { onClick, this.increment }, "+"),
+    React.createElement("button", { onClick, this.decrement }, "-")
   );
 }`}
               </PrismCode>
@@ -412,14 +412,13 @@ class Intro extends Component {
             </h5>
           </div>
         </Step>
-        <Step id="coding-1" x={500} y={300} z={-400} rotateY={10} rotateZ={5}>
+        <Step id="coding-1" x={550} y={320} z={-300} rotateY={15} rotateZ={7}>
           <Card
             style={{
-              marginLeft: -100,
-              width: 450,
-              height: 500,
+              marginLeft: -130,
+              width: 430,
               marginBottom: 32,
-              fontSize: 30,
+              fontSize: 28,
             }}
           >
             <CardContent>
@@ -434,7 +433,49 @@ class Intro extends Component {
                 >
                   Coding excercise
                 </h5>
-                <div>TODO</div>
+                <ol
+                  style={{
+                    fontSize: 28,
+                  }}
+                >
+                  <li>
+                    Make sure <b>Node.js</b> and <b>npm</b> are installed on
+                    your machine
+                  </li>
+                  <li>
+                    <pre>npm install -g create-react-app</pre>
+                  </li>
+                  <li>
+                    <pre>create-react-app counter-app</pre>
+                  </li>
+                  <li>
+                    <pre>cd counter-app/</pre>
+                  </li>
+                  <li>
+                    <pre>npm start</pre>
+                  </li>
+                  <li>
+                    Edit <b>src/App.js</b>, implement the counter example
+                  </li>
+                  <li>
+                    Try to implement a reset button that zeroes counter value
+                  </li>
+                </ol>
+                <div
+                  style={{
+                    color: 'blue',
+                    left: 300,
+                    top: 425,
+                    position: 'absolute',
+                    fontFamily: "'Gloria Hallelujah', cursive",
+                    fontSize: 64,
+                    textAlign: 'center',
+                    transform: 'rotate(-20deg)',
+                    opacity: 0.5,
+                  }}
+                >
+                  -&gt;
+                </div>
               </div>
             </CardContent>
           </Card>
