@@ -307,13 +307,29 @@ ul {
 #jsx-recall {
   opacity: 0;
 }
+.impress-on-jsx-recall #jsx-recall {
+  opacity: 1;
+}
 .impress-on-jsx-recall .step {
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 #jsx-optional {
   opacity: 0;
 }
+.impress-on-jsx-optional #jsx-optional {
+  opacity: 1;
+}
 .impress-on-jsx-optional .step {
-  opacity: 1 !important;
+  opacity: 1;
+}
+
+#coding-1 {
+  opacity: 0;
+}
+.impress-on-coding-1 #coding-1 {
+  opacity: 1;
+}
+.impress-on-coding-1 .step {
+  opacity: 1;
 }

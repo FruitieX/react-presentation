@@ -52,7 +52,7 @@ class Intro extends Component {
             </div>
           </center>
         </Step>
-        <Step id="what-is-react" x={-200} y={0} rotate={-20}>
+        <Step id="what-is-react" x={-200} y={0} z={300} rotate={-20}>
           <Card>
             <CardContent>
               <img
@@ -412,18 +412,11 @@ class Intro extends Component {
             </h5>
           </div>
         </Step>
-        <Step
-          id="coding-1"
-          x={-1600}
-          y={1200}
-          z={800}
-          rotateX={-70}
-          rotateY={-40}
-          rotateZ={10}
-        >
+        <Step id="coding-1" x={500} y={300} z={-400} rotateY={10} rotateZ={5}>
           <Card
             style={{
-              opacity: 0.8,
+              marginLeft: -100,
+              width: 450,
               height: 500,
               marginBottom: 32,
               fontSize: 30,
