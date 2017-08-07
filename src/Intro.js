@@ -440,7 +440,7 @@ class Intro extends Component {
                 >
                   <li>
                     Make sure <b>Node.js</b> and <b>npm</b> are installed on
-                    your machine
+                    your machine, then:
                   </li>
                   <li>
                     <pre>npm install -g create-react-app</pre>
