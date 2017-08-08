@@ -430,6 +430,49 @@ this.setState({ someArray: [ ...arr, someElement ] });`}
             </CardContent>
           </Card>
         </Step>
+        <Step id="component-lifecycle" x={600} y={2000} z={1400} rotate={-3}>
+          <Card style={{ width: 900 }}>
+            <CardContent>
+              <h4>Component lifecycle methods</h4>
+              <ul style={{ fontSize: 26 }}>
+                <li>
+                  Components may not be "active" or "visible" all the time in
+                  your app
+                </li>
+                <ul style={{ marginTop: 0, color: '#777' }}>
+                  <li>
+                    Example: User navigates between views in app, we only render
+                    visible components
+                  </li>
+                </ul>
+                <li>
+                  We may want to handle events such as component being rendered
+                  for the first time, or component being removed
+                </li>
+                <ul style={{ marginTop: 0, color: '#777' }}>
+                  <li>
+                    Example: Fetch data from an API as soon as component is
+                    visible
+                  </li>
+                </ul>
+                <li>
+                  React conveniently allows us to do that with lifecycle
+                  methods!
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+        </Step>
+        <Step id="lifecycle-example" x={-400} y={2000} z={1400} rotate={-5}>
+          <Card style={{ width: 900 }}>
+            <CardContent>
+              <h4>Most common lifecycle methods</h4>
+              <ul style={{ fontSize: 26 }}>
+                <li>asdf</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </Step>
       </div>
     );
   }
