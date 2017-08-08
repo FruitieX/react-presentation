@@ -343,3 +343,23 @@ ul {
 .impress-on-components-case-sensitive .step {
   opacity: 1;
 }
+
+#props-counter {
+  opacity: 0;
+}
+.impress-on-props-counter #props-counter {
+  opacity: 1;
+}
+.impress-on-props-counter .step {
+  opacity: 1;
+}
+
+#state-counter {
+  opacity: 0;
+}
+.impress-on-state-counter #state-counter {
+  opacity: 1;
+}
+.impress-on-state-counter .step {
+  opacity: 1;
+}

@@ -52,7 +52,7 @@ class Intro extends Component {
             </div>
           </center>
         </Step>
-        <Step id="what-is-react" x={600} y={300} z={1700} rotate={-20}>
+        <Step id="what-is-react" x={600} y={100} z={2000} rotate={-20}>
           <Card>
             <CardContent>
               <img
