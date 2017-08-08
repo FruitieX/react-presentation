@@ -333,3 +333,13 @@ ul {
 .impress-on-coding-1 .step {
   opacity: 1;
 }
+
+#components-case-sensitive {
+  opacity: 0;
+}
+.impress-on-components-case-sensitive #components-case-sensitive {
+  opacity: 1;
+}
+.impress-on-components-case-sensitive .step {
+  opacity: 1;
+}

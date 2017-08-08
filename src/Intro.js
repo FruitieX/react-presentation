@@ -52,7 +52,7 @@ class Intro extends Component {
             </div>
           </center>
         </Step>
-        <Step id="what-is-react" x={-200} y={0} z={300} rotate={-20}>
+        <Step id="what-is-react" x={600} y={300} z={1700} rotate={-20}>
           <Card>
             <CardContent>
               <img
@@ -411,6 +411,98 @@ class Intro extends Component {
               Both are equally valid, but I would recommend the former...
             </h5>
           </div>
+        </Step>
+        <Step id="jsx-javascript-1" x={-800} y={400} z={-700} rotate={30}>
+          <Card style={{ marginBottom: 32, fontSize: 30 }}>
+            <CardContent>
+              <Typography className={this.props.classes.title}>
+                JSX can contain inline JavaScript code...
+              </Typography>
+              <ul style={{ fontSize: 28, }}>
+                <li>
+                  ...by putting it in curly braces: <code>{ `{ ... }` }</code>
+                </li>
+              </ul>
+              <PrismCode component="pre" className="language-jsx">
+                {`render() {
+  let variable = 1;
+
+  return (
+    <div>
+      { Math.round(2 / 3 + variable) }
+    </div>
+  );
+}`}
+              </PrismCode>
+
+              <Typography className={this.props.classes.title}>
+                becomes:
+              </Typography>
+
+              <PrismCode component="pre" className="language-html">
+                {`<div>
+  2
+</div>`}
+              </PrismCode>
+            </CardContent>
+          </Card>
+        </Step>
+        <Step id="jsx-javascript-2" x={-600} y={-400} z={-800} rotate={25}>
+          <Card style={{ marginBottom: 32, fontSize: 30, width: 900 }}>
+            <CardContent>
+              <Typography className={this.props.classes.title}>
+                More useful JSX examples
+              </Typography>
+              <div className={this.props.classes.codeContainer}>
+                <div className={this.props.classes.code}>
+                  <Typography className={this.props.classes.title}>
+                    Loops
+                  </Typography>
+                  <PrismCode component="pre" className="language-jsx">
+                    {`const exampleArray = [1, 2, 3];
+...
+<div>
+  {
+    exampleArray.map(item =>
+      <div key={item}>
+        { item }
+      </div>
+    )
+  }
+</div>`}
+                  </PrismCode>
+                  <PrismCode component="pre" className="language-html">
+                    {`<div>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>`}
+                  </PrismCode>
+                </div>
+                <div className={this.props.classes.code}>
+                  <Typography className={this.props.classes.title}>
+                    Conditional expressions
+                  </Typography>
+                  <PrismCode component="pre" className="language-jsx">
+                    {`<div>
+  { false && <div>Hidden</div> }
+  { true && <div>Rendered</div> }
+  { 5 === 4
+    ? <div>5 is equal to 4</div>
+    : <div>5 is not equal to 4</div>
+  }
+</div>`}
+                  </PrismCode>
+                  <PrismCode component="pre" className="language-html">
+                    {`<div>
+  <div>Rendered</div>
+  <div>5 is not equal to 4</div>
+</div>`}
+                  </PrismCode>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </Step>
         <Step id="coding-1" x={550} y={320} z={-300} rotateY={15} rotateZ={7}>
           <Card
