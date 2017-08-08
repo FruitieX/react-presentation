@@ -334,6 +334,14 @@ class TextContainer extends Component {
                 </li>
                 <ul style={{ marginTop: 0 }}>
                   <li>This tells React that a component re-render is needed</li>
+                  <li>
+                    Note that{' '}
+                    <b>
+                      <code>setState()</code>
+                    </b>{' '}
+                    is asynchronous, changes are not applied immediately and may
+                    be batched for performance reasons
+                  </li>
                 </ul>
               </ul>
             </CardContent>
@@ -466,12 +474,121 @@ this.setState({ someArray: [ ...arr, someElement ] });`}
         <Step id="lifecycle-example" x={-400} y={2000} z={1400} rotate={-5}>
           <Card style={{ width: 900 }}>
             <CardContent>
-              <h4>Most common lifecycle methods</h4>
-              <ul style={{ fontSize: 26 }}>
-                <li>asdf</li>
-              </ul>
+              <h4>Most common lifecycle methods:</h4>
+              <PrismCode component="pre" className="language-jsx">
+                {`class LifecycleExample extends Component {
+  constructor(props) {
+    super(props);
+    // Called before component renders for the first time.
+    // Avoid introducing any side-effects here.
+    // Setting up initial state here based on props is fine.
+  }
+  componentDidMount() {
+    // Called when component has been rendered for the first time.
+    // This is a good place to do API calls for example.
+    // You can also set up timers with setTimeout() here.
+  }
+  componentWillReceiveProps(nextProps) {
+    // Called when props passed to component have changed.
+    // You can use this to compare old/new props and take action accordingly.
+  }
+  componentWillUnmount() {
+    // Called before a component unmounts (= about to be removed from the DOM)
+    // Good place to cancel any setTimeout() timers with clearTimeout()
+  }
+}`}
+              </PrismCode>
             </CardContent>
           </Card>
+        </Step>
+        <Step id="coding-2" x={-700} y={2800} z={1300} rotateY={15} rotateZ={7}>
+          <div>
+            <h5
+              style={{
+                color: 'blue',
+                fontFamily: "'Gloria Hallelujah', cursive",
+                fontSize: 48,
+                opacity: 0.5,
+              }}
+            >
+              Coding excercise
+            </h5>
+            <div className={this.props.classes.codeContainer}>
+              <div className={this.props.classes.code}>
+                <Card>
+                  <CardContent>
+                    <p style={{ fontSize: 22 }}>
+                      1. Implement multiple Counters
+                    </p>
+                    <ul style={{ fontSize: 18, marginTop: 0 }}>
+                      <li>
+                        Hint: Write a <b>CounterWrapper</b> component that
+                        renders multiple Counter components like so:
+                      </li>
+                      <PrismCode component="pre" className="language-jsx">
+                        {`render() {
+  <div>
+    <Counter />
+    <Counter />
+    <Counter />
+  </div>
+}`}
+                      </PrismCode>
+                    </ul>
+                  </CardContent>
+                </Card>
+                <Card style={{ marginTop: 32 }}>
+                  <CardContent>
+                    <p style={{ fontSize: 22 }}>
+                      3. Try making each counter value increase once every
+                      second
+                    </p>
+                    <ul style={{ fontSize: 18, marginTop: 0 }}>
+                      <PrismCode component="pre" className="language-jsx">
+                        {`componentDidMount() {
+  this.timer = setTimeout(...);
+}
+componentWillUnmount() {
+  clearTimeout(this.timer);
+}`}
+                      </PrismCode>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+              <div className={this.props.classes.code}>
+                <Card>
+                  <CardContent>
+                    <p style={{ fontSize: 22 }}>
+                      2. Implement <b>Add counter</b> &amp;{' '}
+                      <b>Remove counter</b> buttons
+                    </p>
+                    <ul style={{ fontSize: 18, marginTop: 0 }}>
+                      <li>
+                        Hint: Keep track of how many counters you have in the
+                        state of CounterWrapper
+                      </li>
+                      <li>Hint: Use a loop:</li>
+                      <PrismCode component="pre" className="language-jsx">
+                        {`render() {
+  const counters = [];
+
+  for (let i = 0; i < ?; i++) {
+    counters.push(<Counter />);
+  }
+
+  return
+    <div>
+      { counters }
+    </div>;
+}`}
+                      </PrismCode>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
         </Step>
       </div>
     );
