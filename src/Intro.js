@@ -49,6 +49,8 @@ class Intro extends Component {
             <div className="App-header">
               <img src={logo} className="App-logo" alt="React logo" />
               <div>Welcome to React!</div>
+              <div>Find this presentation at:</div>
+              <h6>https://haaga-helia-react.surge.sh</h6>
             </div>
           </center>
         </Step>
@@ -418,9 +420,9 @@ class Intro extends Component {
               <Typography className={this.props.classes.title}>
                 JSX can contain inline JavaScript code...
               </Typography>
-              <ul style={{ fontSize: 28, }}>
+              <ul style={{ fontSize: 28 }}>
                 <li>
-                  ...by putting it in curly braces: <code>{ `{ ... }` }</code>
+                  ...by putting it in curly braces: <code>{`{ ... }`}</code>
                 </li>
               </ul>
               <PrismCode component="pre" className="language-jsx">
