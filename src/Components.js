@@ -7,18 +7,6 @@ import Typography from 'material-ui/Typography';
 
 import Step from './Step';
 
-import JQueryCounter from './examples/JQueryCounter';
-import ReactCounter from './examples/ReactCounter';
-
-import jqueryLogo from './assets/jquery-logo.png';
-import reactLogo from './assets/react-logo.png';
-
-import jquerySmall from './assets/jquery-small.svg';
-import jqueryBig from './assets/jquery-big.svg';
-import reactSmall from './assets/react-small.svg';
-import reactBig from './assets/react-big.svg';
-
-import logo from './assets/react-logo.png';
 import './App.css';
 
 import { withStyles, createStyleSheet } from 'material-ui/styles';
