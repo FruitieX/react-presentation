@@ -5,6 +5,8 @@ import { PrismCode } from 'react-prism';
 import Card, { CardContent } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 
+import ComponentsDiagram from './assets/components-diagram.png';
+
 import Step from './Step';
 
 import './App.css';
@@ -175,14 +177,14 @@ class CounterContainer extends Component {
             </Card>
           </div>
         </Step>
-        <Step id="components-parts" x={1400} y={1200} z={700} rotate={7}>
+        <Step id="components-parts" x={1400} y={1200} z={200} rotate={7}>
           <Card>
             <CardContent>
               <h4>Components split the app into logical parts</h4>
               <ul style={{ fontSize: 30 }}>
                 <li>Development work can easily be split up accordingly</li>
                 <li>Components are independent from each other</li>
-                <li>TODO: diagram</li>
+                <img src={ComponentsDiagram} />
               </ul>
             </CardContent>
           </Card>
