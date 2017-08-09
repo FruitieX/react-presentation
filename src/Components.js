@@ -96,7 +96,8 @@ class CounterContainer extends Component {
           x={50}
           y={1200}
           z={720}
-          rotateY={2}
+          rotateX={-7}
+          rotateY={-2}
           rotateZ={7}
         >
           <div style={{ width: 400 }}>
@@ -489,24 +490,76 @@ this.setState({ someArray: [ ...arr, someElement ] });`}
             </CardContent>
           </Card>
         </Step>
+        <Step
+          id="additional-reading"
+          x={-1500}
+          y={1400}
+          z={1300}
+          rotateY={15}
+          rotateZ={7}
+        >
+          <Card>
+            <CardContent>
+              <h4>Additional reading</h4>
+              <h6>
+                There's plenty more advanced stuff to learn about React...
+              </h6>
+              <h6>...but that's beyond this course:</h6>
+
+              <div style={{ textAlign: 'center' }}>
+                <a href="https://facebook.github.io/react/docs">
+                  https://facebook.github.io/react/docs
+                </a>
+              </div>
+            </CardContent>
+          </Card>
+          <Card style={{ marginTop: 32 }}>
+            <CardContent>
+              <h4>Extras, also useful for React Native:</h4>
+              <ul style={{ fontSize: 24 }}>
+                <li>
+                  Styled Components:
+                  <ul style={{ marginTop: 0, marginBottom: 0 }}>
+                    <a href="https://styled-components.com/docs">
+                      https://styled-components.com/docs
+                    </a>
+                  </ul>
+                </li>
+                <li>
+                  React Navigation:
+                  <ul style={{ marginTop: 0, marginBottom: 0 }}>
+                    <a href="https://reactnavigation.org">
+                      https://reactnavigation.org
+                    </a>
+                  </ul>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+          <Card style={{ marginTop: 32 }}>
+            <CardContent>
+              <h4>Extras, only useful in React:</h4>
+              <ul style={{ fontSize: 24 }}>
+                <li>
+                  Server-side rendering:
+                  <ul style={{ marginTop: 0, marginBottom: 0 }}>
+                    <a href="https://learnnextjs.com/">
+                      https://learnnextjs.com
+                    </a>
+                  </ul>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+        </Step>
         <Step id="coding-2" x={-700} y={2800} z={1300} rotateY={15} rotateZ={7}>
-          <div>
-            <h5
-              style={{
-                color: 'blue',
-                fontFamily: "'Gloria Hallelujah', cursive",
-                fontSize: 48,
-                opacity: 0.5,
-              }}
-            >
-              Coding excercise
-            </h5>
+          <div style={{ marginLeft: -100 }}>
             <div className={this.props.classes.codeContainer}>
               <div className={this.props.classes.code}>
                 <Card>
                   <CardContent>
                     <p style={{ fontSize: 22 }}>
-                      1. Implement multiple Counters
+                      1. Implement <b>multiple Counters</b>
                     </p>
                     <ul style={{ fontSize: 18, marginTop: 0 }}>
                       <li>
@@ -528,16 +581,26 @@ this.setState({ someArray: [ ...arr, someElement ] });`}
                 <Card style={{ marginTop: 32 }}>
                   <CardContent>
                     <p style={{ fontSize: 22 }}>
-                      3. Try making each counter value increase once every
-                      second
+                      3. Try making each counter{' '}
+                      <b>increase its value once every second</b>
                     </p>
-                    <ul style={{ fontSize: 18, marginTop: 0 }}>
+                    <ul style={{ fontSize: 14, marginTop: 0 }}>
+                      <li>
+                        Hint: Use{' '}
+                        <code>
+                          <b>setInterval() & clearInterval()</b>
+                        </code>{' '}
+                        in{' '}
+                        <code>
+                          <b>componentDidMount() & componentDidUnmount()</b>
+                        </code>{' '}
+                      </li>
                       <PrismCode component="pre" className="language-jsx">
                         {`componentDidMount() {
-  this.timer = setTimeout(...);
+  this.timer = setInterval(...);
 }
 componentWillUnmount() {
-  clearTimeout(this.timer);
+  clearInterval(this.timer);
 }`}
                       </PrismCode>
                     </ul>
@@ -545,29 +608,48 @@ componentWillUnmount() {
                 </Card>
               </div>
               <div className={this.props.classes.code}>
+                <h5
+                  style={{
+                    color: 'blue',
+                    fontFamily: "'Gloria Hallelujah', cursive",
+                    fontSize: 48,
+                    opacity: 0.5,
+                    marginBottom: 32,
+                  }}
+                >
+                  Coding excercise
+                </h5>
                 <Card>
                   <CardContent>
                     <p style={{ fontSize: 22 }}>
-                      2. Implement <b>Add counter</b> &amp;{' '}
-                      <b>Remove counter</b> buttons
+                      2. Implement <b>Add &amp; Remove counter</b> buttons
                     </p>
                     <ul style={{ fontSize: 18, marginTop: 0 }}>
                       <li>
-                        Hint: Keep track of how many counters you have in the
-                        state of CounterWrapper
+                        Hint: Keep track of <b>how many counters</b> you have in
+                        the <b>state</b> of CounterWrapper
                       </li>
-                      <li>Hint: Use a loop:</li>
+                      <li>
+                        Hint: <b>Render</b> the counters using a <b>loop</b>
+                      </li>
+                      <li>
+                        Hint: JS lacks a range function, we can use{' '}
+                        <code>[...Array(cnt)]</code> to create an empty array
+                        containing <code>cnt</code> elements:
+                      </li>
                       <PrismCode component="pre" className="language-jsx">
-                        {`render() {
-  const counters = [];
-
-  for (let i = 0; i < ?; i++) {
-    counters.push(<Counter />);
-  }
-
+                        {`// Initial state
+state = { numCounters: 3 };
+...
+render() {
+  const { numCounters } = this.state;
   return
     <div>
-      { counters }
+      {
+        [...Array(numCounters)].map(
+          <Counter />
+        )
+      }
     </div>;
 }`}
                       </PrismCode>
