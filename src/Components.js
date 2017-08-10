@@ -59,7 +59,7 @@ class Components extends Component {
             </CardContent>
           </Card>
         </Step>
-        <Step id="components-counters" x={500} y={1200} z={700} rotate={5}>
+        <Step id="components-counters" x={200} y={1200} z={700} rotate={5}>
           <Card>
             <CardContent>
               <h4>Let's try rendering a list of Counters!</h4>
@@ -95,7 +95,7 @@ class CounterContainer extends Component {
         </Step>
         <Step
           id="components-case-sensitive"
-          x={50}
+          x={-250}
           y={1200}
           z={720}
           rotateX={-7}
@@ -177,7 +177,14 @@ class CounterContainer extends Component {
             </Card>
           </div>
         </Step>
-        <Step id="components-parts" x={1400} y={1200} z={200} rotate={7}>
+        <Step
+          id="components-parts"
+          x={400}
+          y={2000}
+          z={200}
+          rotate={7}
+          rotateX={30}
+        >
           <Card>
             <CardContent>
               <h4>Components split the app into logical parts</h4>
@@ -189,7 +196,7 @@ class CounterContainer extends Component {
             </CardContent>
           </Card>
         </Step>
-        <Step id="components-props" x={1500} y={1800} z={900} rotate={-7}>
+        <Step id="components-props" x={1700} y={1700} z={200} rotate={-7}>
           <Card style={{ width: 900 }}>
             <CardContent>
               <h4>Component properties or "props"</h4>
@@ -288,7 +295,7 @@ class TextContainer extends Component {
             </div>
           </div>
         </Step>
-        <Step id="components-state" x={2200} y={1100} z={1200} rotate={-2}>
+        <Step id="components-state" x={1700} y={1000} z={200} rotate={-2}>
           <Card style={{ width: 900 }}>
             <CardContent>
               <h4>Component state</h4>
@@ -393,7 +400,29 @@ class TextContainer extends Component {
             </div>
           </div>
         </Step>
-        <Step id="state-mutation" x={2500} y={1700} z={1200} rotate={3}>
+        <Step
+          id="components-updating"
+          x={2200}
+          y={1300}
+          z={700}
+          rotate={-2}
+          style={{ display: 'flex' }}
+        >
+          <div style={{ flex: 1 }} />
+          <Card style={{ flex: 1, flexAlign: 'flex-end' }}>
+            <CardContent>
+              <h4>Note on component re-rendering</h4>
+              <ul style={{ fontSize: 26 }}>
+                <li>Components automatically re-render if:</li>
+                <ul style={{ fontSize: 26 }}>
+                  <li>Component props change</li>
+                  <li>Component state changes</li>
+                </ul>
+              </ul>
+            </CardContent>
+          </Card>
+        </Step>
+        <Step id="state-mutation" x={2800} y={2400} z={1200} rotate={3}>
           <Card style={{ width: 900 }}>
             <CardContent>
               <h4>Mutating component state</h4>

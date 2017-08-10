@@ -343,7 +343,7 @@ class Intro extends Component {
             </h4>
           </div>
         </Step>
-        <Step id="jsx" x={-200} y={1200} z={-50} rotate={20}>
+        <Step id="jsx" x={200} y={1400} z={-850} rotate={20} rotateX={-10}>
           <Card style={{ marginBottom: 32, fontSize: 30 }}>
             <CardContent>
               <Typography className={this.props.classes.title}>
@@ -379,10 +379,11 @@ class Intro extends Component {
         </Step>
         <Step
           id="jsx-optional"
-          x={-900}
-          y={900}
-          z={250}
+          x={-600}
+          y={1100}
+          z={-450}
           rotate={30}
+          rotateX={-10}
           rotateY={-10}
         >
           <div
