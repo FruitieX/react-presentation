@@ -219,7 +219,7 @@ this.nums.forEach(function (v) {
           </Card>
         </Step>
         <Step id="es6-classes" x={-200} y={-1400} z={2000} rotate={-4}>
-          <Card>
+          <Card style={{ width: 900 }}>
             <CardContent>
               <h4>ES6 - classes</h4>
               <div
@@ -316,7 +316,7 @@ console.log(\`Hello, \${name}!\`); // Hello, World!
           </Card>
         </Step>
         <Step id="beyond-es6-spread" x={-1000} y={-600} z={2000} rotate={-4}>
-          <Card>
+          <Card style={{ width: 900 }}>
             <CardContent>
               <h4>Beyond ES6 - spread notation</h4>
               <div style={{ fontSize: 24 }}>
