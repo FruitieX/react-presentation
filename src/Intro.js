@@ -54,6 +54,313 @@ class Intro extends Component {
             </div>
           </center>
         </Step>
+        <Step id="agenda" x={1800} y={100} z={2000}>
+          <Card>
+            <CardContent>
+              <h4>Monday (Lecture 1)</h4>
+              <ul style={{ fontSize: 24 }}>
+                <li>Modern JavaScript - ES6</li>
+                <li>React basics through examples</li>
+                <li>Background, comparison to other frameworks</li>
+                <li>JSX syntax</li>
+                <li>
+                  <b>Exercise: </b>Environment setup
+                </li>
+                <li>
+                  <b>Exercise: </b>Implementing a counter
+                </li>
+              </ul>
+              <h4>Tuesday (Lecture 2)</h4>
+              <ul style={{ fontSize: 24 }}>
+                <li>React Components:</li>
+                <ul style={{ fontSize: 24, marginTop: 0 }}>
+                  <li>Component props</li>
+                  <li>Component state</li>
+                  <li>Lifecycle methods</li>
+                </ul>
+                <li>
+                  <b>Exercise: </b>Implementing multiple counters using React
+                  components
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+        </Step>
+        <Step id="es6-intro" x={1200} y={-800} z={2000} rotate={-10}>
+          <Card>
+            <CardContent>
+              <h4>Modern JavaScript - ES6</h4>
+              <ul style={{ fontSize: 32 }}>
+                <li>ES6 is a set of extensions to JavaScript</li>
+                <li>React makes use of a few of these:</li>
+              </ul>
+            </CardContent>
+          </Card>
+          <div style={{ marginLeft: -32 }}>
+            <div className={this.props.classes.codeContainer}>
+              <div className={this.props.classes.code}>
+                <Card>
+                  <CardContent>
+                    <div style={{ fontSize: 30 }}>
+                      <code>let</code>
+                    </div>
+                    <div style={{ fontSize: 22 }}>
+                      <code>let</code> is block scoped (to <b>any</b>{' '}
+                      <code>{`{}`}</code>-block):
+                    </div>
+                    <PrismCode component="pre" className="language-jsx">
+                      {`{
+  var a = 42;
+  let b = 42;
+}
+console.log(a); // 42
+console.log(b); // ReferenceError:
+                // b is not defined
+`}
+                    </PrismCode>
+                  </CardContent>
+                </Card>
+              </div>
+              <div className={this.props.classes.code}>
+                <Card>
+                  <CardContent>
+                    <div style={{ fontSize: 30 }}>
+                      <code>const</code>
+                    </div>
+                    <div style={{ fontSize: 22 }}>
+                      <code>const</code> is like <code>let</code> but its
+                      reference cannot be changed:
+                    </div>
+                    <PrismCode component="pre" className="language-jsx">
+                      {`const a = 42;
+a = 43; // TypeError: Assignment
+        // to a constant variable.`}
+                    </PrismCode>
+                    <div style={{ fontSize: 22 }}>
+                      Note: const objects are <b>not immutable</b>:
+                    </div>
+                    <PrismCode component="pre" className="language-jsx">
+                      {`const a = []; const b = {};
+a.push(42);
+b.foo = 'bar'
+console.log(a, b); // [ 42 ],
+                   // { foo: 'bar'}
+`}
+                    </PrismCode>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </Step>
+        <Step id="es6-arrow" x={200} y={-600} z={2000} rotate={-7}>
+          <Card>
+            <CardContent>
+              <h4>ES6 - arrow functions</h4>
+              <div
+                className={this.props.classes.codeContainer}
+                style={{ margin: -16, marginBottom: -32 }}
+              >
+                <div className={this.props.classes.code}>
+                  <PrismCode component="pre" className="language-jsx">
+                    {`[1, 2, 3].map(elem => {
+  return elem * 2
+}); // [2, 4, 6]`}
+                  </PrismCode>
+                </div>
+                <div className={this.props.classes.code}>
+                  <PrismCode component="pre" className="language-jsx">
+                    {`// Or even shorter, leaving out
+// {} implies returning result:
+[1, 2, 3].map(elem => elem * 2);`}
+                  </PrismCode>
+                </div>
+              </div>
+              <div style={{ fontSize: 22, marginTop: 16 }}>
+                is equivalent to:
+              </div>
+              <PrismCode component="pre" className="language-jsx">
+                {`[1, 2, 3].map(function(elem) {
+  return elem * 2;
+});`}
+              </PrismCode>
+            </CardContent>
+          </Card>
+          <Card style={{ marginTop: 16 }}>
+            <CardContent>
+              <div style={{ fontSize: 22 }}>
+                Arrow functions bind the value of "<code>this</code>" from
+                lexical scope (surrounding code):
+              </div>
+              <div
+                className={this.props.classes.codeContainer}
+                style={{ margin: -16, marginBottom: -32 }}
+              >
+                <div className={this.props.classes.code}>
+                  <PrismCode component="pre" className="language-jsx">
+                    {`// With arrow functions
+  this.nums.forEach((v) => {
+    if (v % 5 === 0)
+        this.fives.push(v);
+});`}
+                  </PrismCode>
+                </div>
+                <div className={this.props.classes.code}>
+                  <PrismCode component="pre" className="language-jsx">
+                    {`// Old way using .bind(this)
+this.nums.forEach(function (v) {
+    if (v % 5 === 0)
+        this.fives.push(v);
+}.bind(this));`}
+                  </PrismCode>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </Step>
+        <Step id="es6-classes" x={-200} y={-1400} z={2000} rotate={-4}>
+          <Card>
+            <CardContent>
+              <h4>ES6 - classes</h4>
+              <div
+                className={this.props.classes.codeContainer}
+                style={{ margin: -16, marginBottom: -32 }}
+              >
+                <div className={this.props.classes.code}>
+                  <div style={{ fontSize: 24 }}>Class definition</div>
+                  <PrismCode component="pre" className="language-jsx">
+                    {`class Shape {
+  constructor (id, x, y) {
+    this.id = id;
+    this.move(x, y);
+  }
+  move (x, y) {
+    this.x = x;
+    this.y = y;
+  }
+}`}
+                  </PrismCode>
+                </div>
+                <div className={this.props.classes.code}>
+                  <div style={{ fontSize: 24 }}>ES5 equivalent</div>
+                  <PrismCode component="pre" className="language-jsx">
+                    {`var Shape = function (id, x, y) {
+  this.id = id;
+  this.move(x, y);
+};
+Shape.prototype.move = function (x, y) {
+  this.x = x;
+  this.y = y;
+};`}
+                  </PrismCode>
+                </div>
+              </div>
+              <div style={{ marginTop: 16, fontSize: 24, textAlign: 'center' }}>
+                <b>Subclassing works too (React uses this a lot)</b>
+              </div>
+              <div
+                className={this.props.classes.codeContainer}
+                style={{ margin: -16, marginBottom: -32 }}
+              >
+                <div className={this.props.classes.code}>
+                  <div style={{ fontSize: 24 }}>ES6</div>
+                  <PrismCode component="pre" className="language-jsx">
+                    {`class Circle extends Shape {
+  constructor (id, x, y, r) {
+    super(id, x, y);
+    this.radius = r;
+  }
+}`}
+                  </PrismCode>
+                </div>
+                <div className={this.props.classes.code}>
+                  <div style={{ fontSize: 24 }}>ES5 equivalent</div>
+                  <PrismCode component="pre" className="language-jsx">
+                    {`var Circle = function (id, x, y, r) {
+  Shape.call(this, id, x, y);
+  this.radius = r;
+};
+Circle.prototype = Object.create(
+  Shape.prototype);
+Circle.prototype.constructor = Circle;`}
+                  </PrismCode>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </Step>
+        <Step
+          id="es6-template-literals"
+          x={-1200}
+          y={-1600}
+          z={2000}
+          rotate={-8}
+        >
+          <Card>
+            <CardContent>
+              <h4>ES6 - template literals</h4>
+              <PrismCode component="pre" className="language-jsx">
+                {`let s = \`Today is \${new Date()}\`;
+console.log(s); // Today is Mon Aug 14 2017 10:14:17 GMT+0300 (EEST)
+
+let name = 'World';
+console.log(\`Hello, \${name}!\`); // Hello, World!
+`}
+              </PrismCode>
+            </CardContent>
+          </Card>
+        </Step>
+        <Step id="beyond-es6-spread" x={-1000} y={-600} z={2000} rotate={-4}>
+          <Card>
+            <CardContent>
+              <h4>Beyond ES6 - spread notation</h4>
+              <div style={{ fontSize: 24 }}>
+                Object spread notation is useful when you want to create a new
+                object instead of modifying the old instance:
+              </div>
+              <div
+                className={this.props.classes.codeContainer}
+                style={{ margin: -16, marginBottom: -32 }}
+              >
+                <div className={this.props.classes.code}>
+                  <PrismCode component="pre" className="language-jsx">
+                    {`let a = {
+  name: 'Apple',
+  price: 42
+};
+
+// This only causes b to reference a!
+let b = a;
+b.name = 'Orange'; // 🔥🔥🔥‼️
+
+console.log(a, b);
+// { name: 'Orange', price: 42 }
+// { name: 'Orange', price: 42 }
+`}
+                  </PrismCode>
+                </div>
+                <div className={this.props.classes.code}>
+                  <PrismCode component="pre" className="language-jsx">
+                    {`let a = {
+  name: 'Apple',
+  price: 42
+};
+
+let b = {
+  ...a, // All properties from a
+  name: 'Orange'
+};
+
+console.log(a, b);
+// { name: 'Apple', price: 42 }
+// { name: 'Orange', price: 42 }
+`}
+                  </PrismCode>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </Step>
         <Step id="what-is-react" x={600} y={100} z={2000} rotate={-20}>
           <Card>
             <CardContent>
