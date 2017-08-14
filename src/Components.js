@@ -41,7 +41,7 @@ class Components extends Component {
             <CardContent>
               <center>
                 <div className="App-header">
-                  <div>Components</div>
+                  <div>Lecture 2: Components</div>
                 </div>
               </center>
               <Typography className={this.props.classes.title}>

@@ -163,7 +163,7 @@ console.log(a, b); // [ 42 ],
               >
                 <div className={this.props.classes.code}>
                   <PrismCode component="pre" className="language-jsx">
-                    {`[1, 2, 3].map(elem => {
+                    {`[1, 2, 3].map((elem) => {
   return elem * 2
 }); // [2, 4, 6]`}
                   </PrismCode>
@@ -199,9 +199,9 @@ console.log(a, b); // [ 42 ],
                 <div className={this.props.classes.code}>
                   <PrismCode component="pre" className="language-jsx">
                     {`// With arrow functions
-  this.nums.forEach((v) => {
-    if (v % 5 === 0)
-        this.fives.push(v);
+this.nums.forEach((v) => {
+  if (v % 5 === 0)
+    this.fives.push(v);
 });`}
                   </PrismCode>
                 </div>
@@ -209,8 +209,8 @@ console.log(a, b); // [ 42 ],
                   <PrismCode component="pre" className="language-jsx">
                     {`// Old way using .bind(this)
 this.nums.forEach(function (v) {
-    if (v % 5 === 0)
-        this.fives.push(v);
+  if (v % 5 === 0)
+    this.fives.push(v);
 }.bind(this));`}
                   </PrismCode>
                 </div>
@@ -300,9 +300,14 @@ Circle.prototype.constructor = Circle;`}
             <CardContent>
               <h4>ES6 - template literals</h4>
               <PrismCode component="pre" className="language-jsx">
-                {`let s = \`Today is \${new Date()}\`;
+                {`// Old way
+s = 'Today is ' + new Date();
+
+// With template literals
+s = \`Today is \${new Date()}\`;
 console.log(s); // Today is Mon Aug 14 2017 10:14:17 GMT+0300 (EEST)
 
+// Another example using variables
 let name = 'World';
 console.log(\`Hello, \${name}!\`); // Hello, World!
 `}
@@ -840,6 +845,7 @@ console.log(a, b);
                     fontSize: 28,
                   }}
                 >
+                  <li>Install editor of choice</li>
                   <li>
                     Make sure <b>Node.js</b> and <b>npm</b> are installed on
                     your machine, then:
@@ -867,7 +873,7 @@ console.log(a, b);
                   style={{
                     color: 'blue',
                     left: 300,
-                    top: 425,
+                    top: 450,
                     position: 'absolute',
                     fontFamily: "'Gloria Hallelujah', cursive",
                     fontSize: 64,
