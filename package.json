@@ -9,6 +9,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-prism": "^4.3.0",
+    "styled-components": "^2.1.2",
     "typeface-gloria-hallelujah": "^0.0.31",
     "typeface-roboto": "0.0.31"
   },

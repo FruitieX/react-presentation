@@ -13,6 +13,22 @@ import './App.css';
 
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 
+import styled from 'styled-components';
+const Red = styled.div`
+  background-color: lightcoral;
+  transform: rotate(-12deg);
+`;
+
+class MyComponent extends Component {
+  render() {
+    return (
+      <Red>
+        <h4>Welcome to React</h4>
+      </Red>
+    );
+  }
+}
+
 const styleSheet = createStyleSheet('Components', theme => ({
   title: {
     textAlign: 'center',
@@ -27,7 +43,9 @@ const styleSheet = createStyleSheet('Components', theme => ({
     flexDirection: 'row',
   },
   code: {
-    padding: 16,
+    backgroundColor: '#fafafa',
+    padding: 8,
+    margin: 8,
     flex: 1,
   },
 }));
@@ -56,6 +74,70 @@ class Components extends Component {
                 </li>
                 <li>They can be nested as we'll see in the next example...</li>
               </ul>
+            </CardContent>
+          </Card>
+        </Step>
+        <Step
+          id="es6-imports"
+          x={-800}
+          y={1700}
+          z={600}
+          rotateX={80}
+          rotateZ={40}
+          rotate={3}
+        >
+          <Card>
+            <CardContent>
+              <h4>ES6 modules (import & export)</h4>
+              <ul style={{ marginTop: 0, marginBottom: 0, fontSize: 24 }}>
+                <li>
+                  ES6 also provides ways of importing/exporting functions,
+                  objects and primitives between modules (files)
+                </li>
+              </ul>
+              <div className={this.props.classes.codeContainer}>
+                <div className={this.props.classes.code}>
+                  <div style={{ fontSize: 24 }}>
+                    <b>Default exports:</b>
+                  </div>
+                  <PrismCode component="pre" className="language-jsx">
+                    {`// foo.js
+export default 42;`}
+                  </PrismCode>
+                  <PrismCode component="pre" className="language-jsx">
+                    {`// bar.js
+import fourtyTwo from './foo';`}
+                  </PrismCode>
+                </div>
+                <div className={this.props.classes.code}>
+                  <div style={{ fontSize: 24 }}>
+                    <b>Named exports:</b>
+                  </div>
+                  <PrismCode component="pre" className="language-jsx">
+                    {`// foo.js
+export const someNumber = 42;`}
+                  </PrismCode>
+                  <PrismCode component="pre" className="language-jsx">
+                    {`// bar.js
+import {
+  someNumber
+} from './foo';`}
+                  </PrismCode>
+                </div>
+              </div>
+              <div style={{ fontSize: 24 }}>
+                <b>Both default and named exports:</b>
+              </div>
+              <PrismCode component="pre" className="language-jsx">
+                {`// foo.js
+const someNumber = 42;
+export const anotherNumber = 43;
+export const thirdNumber = Math.random();
+export default someNumber;
+
+// bar.js
+import fourtyTwo, { anotherNumber, thirdNumber } from './foo';`}
+              </PrismCode>
             </CardContent>
           </Card>
         </Step>
@@ -623,7 +705,7 @@ this.setState({ someArray: [ ...arr, someElement ] });`}
                         </code>{' '}
                         in{' '}
                         <code>
-                          <b>componentDidMount() & componentDidUnmount()</b>
+                          <b>componentDidMount() & componentWillUnmount()</b>
                         </code>{' '}
                       </li>
                       <PrismCode component="pre" className="language-jsx">
@@ -672,16 +754,16 @@ componentWillUnmount() {
                         {`// Initial state
 state = { numCounters: 3 };
 ...
+renderCounter = (_, index) =>
+  <Counter key={index} />;
+
+renderCounters = () =>
+  [...Array(this.state.numCounters)]
+    .map(this.renderCounter);
+
 render() {
-  const { numCounters } = this.state;
   return
-    <div>
-      {
-        [...Array(numCounters)].map(
-          <Counter />
-        )
-      }
-    </div>;
+    <div>{ this.renderCounters() }</div>;
 }`}
                       </PrismCode>
                     </ul>
@@ -690,6 +772,93 @@ render() {
               </div>
             </div>
           </div>
+        </Step>
+        <Step id="styling" x={-1500} y={3400} z={1300} rotateY={15} rotateZ={7}>
+          <Card>
+            <CardContent>
+              <h4>Extras: Styling in React</h4>
+              <ul style={{ fontSize: 24 }}>
+                <li>
+                  Styles are passed as an <b>object literal</b>
+                </li>
+                <li>This makes it possible to prevent XSS holes</li>
+                <li>
+                  Each style property is <b>camelCase</b>
+                </li>
+                <li>
+                  This is consistent with the JavaScript DOM <code>style</code>{' '}
+                  property (e.g.{' '}
+                  <code>
+                    <b>node.style.paddingTop = 10;</b>
+                  </code>{' '}
+                  vs CSS:{' '}
+                  <code>
+                    <b>padding-top: 10;</b>
+                  </code>)
+                </li>
+              </ul>
+              <PrismCode component="pre" className="language-jsx">
+                {`const styles = {
+  backgroundColor: 'lightcoral',
+  height: 128,
+  width: 128,
+};
+
+...
+
+<div style={styles.container} />`}
+              </PrismCode>
+              <div style={{ display: 'flex' }}>
+                <div
+                  style={{
+                    backgroundColor: 'lightcoral',
+                    height: 128,
+                    width: 128,
+                  }}
+                />
+                <h6>
+                  Quick excercise: Style your counters from the last excercises
+                  by changing colors, sizes, padding
+                </h6>
+              </div>
+            </CardContent>
+          </Card>
+        </Step>
+        <Step
+          id="styling-2"
+          x={-600}
+          y={3700}
+          z={1300}
+          rotateY={15}
+          rotateZ={7}
+        >
+          <Card>
+            <CardContent>
+              <h6>Extras: The future of styling React apps?</h6>
+              <h4>Styled components</h4>
+              <PrismCode component="pre" className="language-bash">
+                {`npm install --save styled-components`}
+              </PrismCode>
+              <PrismCode component="pre" className="language-jsx">
+                {`import styled from 'styled-components';
+const Red = styled.div\`
+  background-color: lightcoral;
+  transform: rotate(-12deg);
+\`;
+
+class MyComponent extends Component {
+  render() {
+    return (
+      <Red>
+        <h4>Welcome to React</h4>
+      </Red>
+    );
+  }
+}`}
+              </PrismCode>
+              <MyComponent />
+            </CardContent>
+          </Card>
         </Step>
       </div>
     );

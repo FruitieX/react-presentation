@@ -35,7 +35,9 @@ const styleSheet = createStyleSheet('Intro', theme => ({
     flexDirection: 'row',
   },
   code: {
-    padding: 16,
+    backgroundColor: '#fafafa',
+    padding: 8,
+    margin: 8,
     flex: 1,
   },
 }));
